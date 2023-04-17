@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/memory-game/static/css/main.cf0d603a.css",
+    "main.js": "/memory-game/static/js/main.8910b177.js",
+    "static/media/woodland-sage.jpg": "/memory-game/static/media/woodland-sage.350dae39ea80be4a84ea.jpg",
+    "static/media/lilac-purple-and-white.jpg": "/memory-game/static/media/lilac-purple-and-white.5cec7434b627b5f28ad2.jpg",
+    "static/media/gladiolus-red.jpg": "/memory-game/static/media/gladiolus-red.899f1c45a18d1b2de897.jpg",
+    "static/media/echinacea.jpg": "/memory-game/static/media/echinacea.5261e795efec4d66f2cd.jpg",
+    "static/media/hibiscus-white.jpg": "/memory-game/static/media/hibiscus-white.d0113d4fe438608cbe6c.jpg",
+    "static/media/rose-pink.jpg": "/memory-game/static/media/rose-pink.5eabeb2ce27290323bb1.jpg",
+    "static/media/rose-white.jpg": "/memory-game/static/media/rose-white.d3a26667e453cfa4ee55.jpg",
+    "static/media/gladiolus-yellow.jpg": "/memory-game/static/media/gladiolus-yellow.5690f591a6e716598689.jpg",
+    "static/media/rose-red.jpg": "/memory-game/static/media/rose-red.8b5d9515bfd3af147cea.jpg",
+    "static/media/crocus.jpg": "/memory-game/static/media/crocus.69dbc18e70d3dc021ece.jpg",
+    "static/media/hydrangea.jpg": "/memory-game/static/media/hydrangea.1f0c727523628daf1c8f.jpg",
+    "static/media/coltsfoot.jpg": "/memory-game/static/media/coltsfoot.70931e65b4ad02b7a23d.jpg",
+    "index.html": "/memory-game/index.html",
+    "main.cf0d603a.css.map": "/memory-game/static/css/main.cf0d603a.css.map",
+    "main.8910b177.js.map": "/memory-game/static/js/main.8910b177.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf0d603a.css",
+    "static/js/main.8910b177.js"
+  ]
+}
