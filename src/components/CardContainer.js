@@ -58,7 +58,7 @@ function CardContainer() {
             clicked: 0
         },
         {
-            name: "Purple and white lilac",
+            name: "Lilac",
             url: lilac,
             color: "rgb(245, 206, 255)",
             clicked: 0
@@ -91,6 +91,7 @@ function CardContainer() {
     const [currentScore, setCurrent] = useState(0);
     const [bestScore, setBest] = useState(0);
     const [result, setResult] = useState('');
+    const [classForResult, setClassForResult] = useState('result');
 
     const addClick = (name) => {
         console.log(name);
@@ -120,7 +121,8 @@ function CardContainer() {
             }
         } else if (!cards.every(clickedOnceOrNever)) {
             console.log("You lost");
-            setResult("You lost");
+            setResult("You lost the game. Try again!");
+            setClassForResult("result lost");
         };
 
         setCards(cards.sort(() => Math.random() - 0.5));
@@ -132,7 +134,8 @@ function CardContainer() {
         };
         if (currentScore === 12) {
             console.log("You won");
-            setResult("You won");
+            setResult("You won the game! Congratulations!");
+            setClassForResult("result won");
         }
     }, [currentScore]);
 
@@ -144,8 +147,7 @@ function CardContainer() {
                     clicked: 0
                 }
             }));
-        }
-
+        };
     }, [result])
 
     return (
@@ -154,7 +156,7 @@ function CardContainer() {
                 <p>Current score: {currentScore}</p>
                 <p>Best score: {bestScore}</p>
             </div>
-            <div className='result'>{result}</div>
+            <div className={classForResult}>{result}</div>
             <div className='card-container'>
                 {cards.map((card) => {
                     return (
