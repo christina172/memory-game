@@ -13,7 +13,7 @@ import redRose from "./images/rose-red.jpg";
 import whiteRose from "./images/rose-white.jpg";
 import sage from "./images/woodland-sage.jpg";
 
-function CardContainer(props) {
+function CardContainer() {
     const [cards, setCards] = useState([
         {
             name: "Coltsfoot",
@@ -88,8 +88,14 @@ function CardContainer(props) {
             clicked: 0
         }
     ]);
+    const [currentScore, setCurrent] = useState(0);
+    const [bestScore, setBest] = useState(0);
+    const [result, setResult] = useState('');
+
     const addClick = (name) => {
-        let newCards = cards.map((card) => {
+        console.log(name);
+
+        setCards(cards.map((card) => {
             if (card.name === name) {
                 return {
                     ...card,
@@ -98,24 +104,65 @@ function CardContainer(props) {
             } else {
                 return card;
             }
-        });
-        setCards(newCards);
-        console.log(cards, newCards);
-    }
+        }));
+    };
+
     useEffect(() => {
+        const clickedOnceOrNever = (card) => card.clicked < 2;
+        const clickedNever = (card) => card.clicked === 0;
+
+        if (!cards.every(clickedNever) && cards.every(clickedOnceOrNever)) {
+            if (result !== "") {
+                setResult("");
+                setCurrent(1);
+            } else {
+                setCurrent(currentScore + 1);
+            }
+        } else if (!cards.every(clickedOnceOrNever)) {
+            console.log("You lost");
+            setResult("You lost");
+        };
+
         setCards(cards.sort(() => Math.random() - 0.5));
-    });
+    }, [cards]);
+
+    useEffect(() => {
+        if (bestScore < currentScore) {
+            setBest(currentScore);
+        };
+        if (currentScore === 12) {
+            console.log("You won");
+            setResult("You won");
+        }
+    }, [currentScore]);
+
+    useEffect(() => {
+        if (result !== "") {
+            setCards(cards.map((card) => {
+                return {
+                    ...card,
+                    clicked: 0
+                }
+            }));
+        }
+
+    }, [result])
+
     return (
-        <div>
+        <div className='container'>
+            <div className='scoreboard'>
+                <p>Current score: {currentScore}</p>
+                <p>Best score: {bestScore}</p>
+            </div>
+            <div className='result'>{result}</div>
             <div className='card-container'>
-                {cards.map((card, index) => {
+                {cards.map((card) => {
                     return (
                         <Card key={card.name} card={card} addClick={addClick} />
                     );
                 })}
             </div>
         </div>
-
     )
 };
 

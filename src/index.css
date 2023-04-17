@@ -22,9 +22,19 @@ main {
     flex: 1;
     padding: 20px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.scoreboard p {
+    text-align: center;
 }
 
 .card-container {
